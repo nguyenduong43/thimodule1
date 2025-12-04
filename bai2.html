@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+      <input type="text" id="a" placeholder="nhap a">
+      <input type="text" id="b" placeholder="nhap b">
+      <br><br>
+      <button type="button" onclick="kiemtra()">kiem tra</button>
+      <p id="kq"></p>
 </body>
 </html>
+<script>
+
+       function banthan(x,y){
+           let t=0;
+           for (let i=1;i<x;i++)
+               if (x%i==0) t=t+i;
+           if (t==y) return 1;else return 0;
+
+       }
+       function kiemtra() {
+           let a=parseInt(document.getElementById('a').value);
+           let b=parseInt(document.getElementById('b').value);
+           if (banthan(a, b) == 1 && banthan(b, a) == 1) document.getElementById("kq").innerHTML = "True";
+           else document.getElementById("kq").innerHTML = "False";
+
+       }
+</script>

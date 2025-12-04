@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+      <input type="text" id="khoitao" placeholder="so phan tu mang">
+      <button type="button" onclick="khoitao()">Tao</button>
+      <br><br>
+      <input type="text" id="nhap" placeholder="nhap phan tu mang">
+      <button type="button" onclick="them()">Add</button>
+      <button type="button" onclick="tinhtb()">Tinh tb</button>
+      <p id="kq"></p>
+      <p id="kq1"></p>
 </body>
 </html>
+<script>
+    let a=[];
+    let i=0;let tong=0;let x=0;
+    let t="";
+    function khoitao(){
+        let n=parseInt(document.getElementById("khoitao").value);
+        for (i=0;i<n;i++) {a[i]=Number(prompt("nhap phan tu"));
+            t=t+"a["+i+"]="+a[i]+"  ";
+            if (i%2==0 && a[i]%2!=0) {tong=tong+a[i];x=x+1;}
+        }
+        document.getElementById('kq').innerHTML=t;
+    }
+
+    function them()
+    {
+         a[i]=parseInt(document.getElementById('nhap').value);
+         t=t+"a["+i+"]="+a[i]+"  ";
+         if (i%2==0 && a[i]%2!=0) {tong=tong+a[i];x=x+1;}
+         document.getElementById('kq').innerHTML=t;
+         i=i+1;
+    }
+    function tinhtb()
+    {
+        document.getElementById('kq1').innerHTML="trung binh cong cac phan tu le o vi tri chan la "+(tong/x).toFixed(2);
+    }
+</script>
