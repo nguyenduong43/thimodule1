@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="kq"></p>
+<button onclick="themsach()">themsach</button>
+<button onclick="muonsach()">muonsach</button>
+</body>
+</html>
+<script>
+    let Sach=function (ma,ten,nam,soluong)
+    {
+        this.ma=ma;
+        this.ten=ten;
+        this.nam=nam;
+        this.soluong=soluong;
+        this.status=true;
+        this.getMa=function(){return this.ma;}
+        this.setMa=function(ma){this.ma=ma;}
+        this.getTen=function(){return this.ten;}
+        this.setTen=function(ten){this.ten=ten;}
+        this.getNam=function(){return this.nam;}
+        this.setNam=function(nam){this.nam=nam;}
+        this.getSL=function(){return this.soluong;}
+        this.setSL=function(soluong){this.soluong=soluong;}
+        this.getStatus=function(){return this.status;}
+        this.setStatus=function(status){this.status=status;}
+        this.muon=function(){
+            if (this.soluong>0) this.soluong--;
+            else this.status=false;
+        }
+    }
+    let a=[];let i=0;
+    function themsach()
+    {
+        let sach=new Sach();
+        sach.setMa(prompt("nhap ma"));
+        sach.setTen(prompt("nhap ten"));
+        sach.setNam(prompt("nhap nam"));
+        sach.setSL(prompt("nhap so luong"));
+        a.push(sach);
+        hienthi(a);
+        i=i+1;
+    }
+    function muonsach() {
+        let j = prompt("ban muon sach co ma la");
+        for (let i = 0; i < a.length; i++)
+            if (a[i].getMa() == j) {
+                a[i].muon();
+                hienthi(a);
+            }
+    }
+        function hienthi(a)
+        {
+            let t="";
+            for (let i=0;i<a.length;i++)
+            {
+                let s=a[i];
+                t=t+s.getMa() + " " + s.getTen() + " " + s.getNam() + " " + s.getSL() + " " + s.getStatus() + "<br>";
+            }
+            document.getElementById("kq").innerHTML=t;
+        }
+
+
+</script>
